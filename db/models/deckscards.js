@@ -1,28 +1,35 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class cards extends Model {
+  class deckscards extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ deckscards }) {
-      // define association here
-      cards.hasMany(deckscards, { foreignKey: 'card_id' });
+    static associate({ decks, cards }) {
+      deckscards.belongsTo(decks, { foreignKey: 'deck_id:' });
+      deckscards.belongsTo(cards, { foreignKey: 'card_id' });
     }
   }
-  cards.init({
+  deckscards.init({
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    card: {
-      type: DataTypes.TEXT,
+    deck_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      references: {
+        model: 'decks',
+      },
+    },
+    card_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      references: { model: 'cards' },
     },
     createdAt: {
       allowNull: false,
@@ -34,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'cards',
+    modelName: 'deckscards',
   });
-  return cards;
+  return deckscards;
 };

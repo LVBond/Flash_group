@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class decks extends Model {
     /**
@@ -9,12 +9,29 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate({ deckscards }) {
       // define association here
+      decks.hasMany(deckscards, { foreignKey: 'deck_id' });
     }
   }
   decks.init({
-    deck: DataTypes.TEXT
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+    },
+    deck: {
+      type: DataTypes.TEXT,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
     modelName: 'decks',
