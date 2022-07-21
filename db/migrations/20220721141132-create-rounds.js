@@ -9,9 +9,15 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+        },
       },
       deck_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'decks',
+        },
       },
       Data: {
         allowNull: false,
