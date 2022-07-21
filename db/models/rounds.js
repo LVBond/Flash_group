@@ -24,12 +24,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     user_id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         model: 'users',
       },
     },
     deck_id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         model: 'decks',
       },
@@ -40,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     count_card: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         model: 'decks',
       },
