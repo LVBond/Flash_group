@@ -11,6 +11,7 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       count_cards: {
+        primaryKey: true,
         type: Sequelize.INTEGER,
       },
       createdAt: {

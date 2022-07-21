@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       decks.hasMany(deckscards, { foreignKey: 'deck_id' });
       decks.hasMany(rounds, { foreignKey: 'deck_id' });
-      decks.hasMany(rounds, { foreignKey: 'count_cards' });
     }
   }
   decks.init({
@@ -27,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
     count_cards: {
+      primaryKey: true,
       type: DataTypes.INTEGER,
     },
     createdAt: {
