@@ -1,50 +1,40 @@
-// const router = require('express').Router();
-
-// router.get('/', (req, res) => {
-//   res.redirect('/some_path');
-// });
-
-// module.exports = router;
-
-
 const router = require('express').Router();
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const { order } = require('../db/models');
+const OrderList = require('../views/OrderList');
+const OrderCard = require('../views/OrderCard');
 
-const User = require('./user');
-
-    router.post('/register', (req, res) => {
-        const today = new Date();
-        const userData = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: req.body.password,
-            created: today
-        }
-
-        User.findOne({
-            email: req.body.email
-        })
-        .then(user => {
-            if(!user){
-                bcrypt.hash(req.body.password, 10, (err, hash) => {
-                    userData.password = hash
-                    User.create(userData)
-                    .then(user => {
-                        res.json({status: user.email + ' registered!'})
-                    })
-                    .catch(err => {
-                        res.send('error: ' + err)
-                    })
-                })
-            } else {
-                res.json({error: ' user already exists'})
-            }
-        })
-        .catch(err => {
-            res.send('error: ' + err)
-        })
+// /orders
+router.get('/', (req, res) => {
+  order.findAll({ raw: true })
+    .then((arrOrders) => {
+      res.renderComponent(OrderList, { arrOrders, version: process.version });
     })
+    .catch((err) => res.status(500).send(`Error: ${err}`));
+});
 
-    module.exports = router;
+router.post('/', (req, res) => {
+  const { title, type } = req.body;
+
+  order.create({ title, type })
+    .then((data) => {
+      console.log(data);
+      res.renderComponent(OrderCard, { order: { title, type } }, { doctype: false });
+    });
+});
+
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+
+  const deleteOrder = await order.destroy({ where: { id } });
+
+  console.log(deleteOrder);
+
+  if (deleteOrder) {
+    res.json({ delete: true })
+  } else {
+    res.status(404).json({ delete: false })
+  }
+
+})
+
+module.exports = router;

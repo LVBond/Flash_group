@@ -14,7 +14,7 @@ config(app);
 app.use('/', mainRoute);
 
 
-const usersRouter = require('./routes/user/user.route');
+const usersRouter = require('./routes/user.route');
 app.use('/user', usersRouter);
 
 
