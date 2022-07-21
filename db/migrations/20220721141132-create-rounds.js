@@ -1,29 +1,34 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('decks', {
+    await queryInterface.createTable('rounds', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      deck: {
-        type: Sequelize.TEXT,
-      },
-      count_cards: {
+      user_id: {
         type: Sequelize.INTEGER,
       },
-      createdAt: {
+      deck_id: {
+        type: Sequelize.INTEGER,
+      },
+      Data: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
+      count_card: {
+        type: Sequelize.INTEGER,
+      },
+      right: {
+        type: Sequelize.INTEGER,
+      },
+      total: {
+        type: Sequelize.INTEGER,
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('decks');
+    await queryInterface.dropTable('rounds');
   },
 };
