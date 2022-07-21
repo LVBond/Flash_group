@@ -1,10 +1,10 @@
-// require('@babel/register');
+require('@babel/register');
 
 const express = require('express');
 
 // Полключение реакта и реактДом:
-// const ReactDOMServer = require('react-dom/server');
-// const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const React = require('react');
 
 const { sequelize } = require('./db/models');
 const app = express();
