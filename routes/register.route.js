@@ -30,11 +30,10 @@ router.delete('/:id', async (req, res) => {
   console.log(deleteOrder);
 
   if (deleteOrder) {
-    res.json({ delete: true })
+    res.json({ delete: true });
   } else {
-    res.status(404).json({ delete: false })
+    res.status(404).json({ delete: false });
   }
-
-})
+});
 
 module.exports = router;
