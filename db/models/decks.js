@@ -25,10 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     deck: {
       type: DataTypes.TEXT,
     },
-    count_cards: {
-      primaryKey: true,
-      type: DataTypes.INTEGER,
-    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,

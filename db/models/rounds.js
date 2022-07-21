@@ -39,13 +39,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    count_card: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      references: {
-        model: 'decks',
-      },
-    },
     right: {
       type: DataTypes.INTEGER,
     },

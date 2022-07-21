@@ -25,9 +25,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      count_card: {
-        type: Sequelize.INTEGER,
-      },
       right: {
         type: Sequelize.INTEGER,
       },

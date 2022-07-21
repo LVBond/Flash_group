@@ -10,10 +10,6 @@ module.exports = {
       deck: {
         type: Sequelize.TEXT,
       },
-      count_cards: {
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
