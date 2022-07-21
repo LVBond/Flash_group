@@ -1,23 +1,14 @@
 // require('@babel/register');
-
 const express = require('express');
+const { sequelize } = require('./db/models');
 
+const app = express();
+const config = require('./config/config');
 // Полключение реакта и реактДом:
 // const ReactDOMServer = require('react-dom/server');
 // const React = require('react');
-
-const { sequelize } = require('./db/models');
-const app = express();
-
-// Добавить в папку config или в файл app.js:
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
-
 const PORT = process.env.PORT ?? 3000;
-
-// Routing
-// app.use('/', mainRouter);
-// app.use('/orders', orderRouter);
+config(app);
 
 // Listen
 app.listen(PORT, async () => {
