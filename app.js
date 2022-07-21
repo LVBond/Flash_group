@@ -1,10 +1,10 @@
-// require('@babel/register');
+require("@babel/register");
 
 const express = require('express');
 
 // Полключение реакта и реактДом:
-// const ReactDOMServer = require('react-dom/server');
-// const React = require('react');
+const ReactDOMServer = require("react-dom/server");
+const React = require("react");
 
 const { sequelize } = require('./db/models');
 const app = express();
@@ -18,6 +18,16 @@ const PORT = process.env.PORT ?? 3000;
 // Routing
 // app.use('/', mainRouter);
 // app.use('/orders', orderRouter);
+
+const Main = require('./views/Main');
+
+app.get('/', (req, res) => {
+  const main = React.createElement(Main, { title: "Express" });
+  const html = ReactDOMServer.renderToStaticMarkup(main);
+  res.write('<!DOCTYPE html>');
+  res.end(html);
+  // res.send('respond with a resource');
+});
 
 // Listen
 app.listen(PORT, async () => {
