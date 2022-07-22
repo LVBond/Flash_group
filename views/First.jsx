@@ -1,16 +1,16 @@
 const React = require('react');
+const CardList = require('./CardList');
 const Layout = require('./Layout');
-const DeckList = require('./DeckList');
 
-function Main({ title, deck }) {
+function First({ title, result }) {
   return (
     <Layout title={title}>
       <section className="container">
         <h1>Заголовок</h1>
-        {deck.map((el) => <DeckList deck={el.deck} id={el.id} />)}
+        {result.map((el) => <CardList card={el} />)}
       </section>
     </Layout>
   );
 }
 
-module.exports = Main;
+module.exports = First;
