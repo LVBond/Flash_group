@@ -21,7 +21,19 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    card: {
+    quest: {
+      type: DataTypes.TEXT,
+    },
+    answer1: {
+      type: DataTypes.TEXT,
+    },
+    answer2: {
+      type: DataTypes.TEXT,
+    },
+    answer3: {
+      type: DataTypes.TEXT,
+    },
+    answer4: {
       type: DataTypes.TEXT,
     },
     createdAt: {
