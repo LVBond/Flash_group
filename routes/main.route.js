@@ -1,6 +1,4 @@
 const router = require('express').Router();
-const ReactDOMServer = require('react-dom/server');
-const React = require('react');
 const { decks, deckscards, cards } = require('../db/models');
 const Main = require('../views/Main');
 const First = require('../views/First');
