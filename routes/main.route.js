@@ -18,4 +18,9 @@ router.get('/', async (req, res) => {
   res.end(html);
 });
 
+router.post('/', async (req, res)=> {
+  const inputWord = req.body.input;
+  res.send(inputWord);
+});
+
 module.exports = router;

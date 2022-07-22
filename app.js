@@ -3,7 +3,7 @@ const express = require('express');
 
 // Полключение реакта и реактДом:
 
-const { sequelize } = require('./db/models');
+// const { sequelize } = require('./db/models');
 const mainRoute = require('./routes/main.route');
 
 const app = express();
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.listen(PORT, async () => {
   try {
     console.log(`Server started at ${PORT} port`);
-    await sequelize.authenticate();
+    // await sequelize.authenticate();
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
