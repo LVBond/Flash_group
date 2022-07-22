@@ -94,7 +94,6 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }
-    , 
     , {
       quest: '«Может быть я не самый умный, но я знаю что такое любовь», - кому принадлежат эти слова?',
       answer1: 'Форресту Гампу',
@@ -126,11 +125,6 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('cards');
   },
 };
