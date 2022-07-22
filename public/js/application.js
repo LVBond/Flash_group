@@ -1,12 +1,15 @@
 const arrAnswers = [];
-// const { cards } = require('../../db/models');
 
 document.querySelector('#mainid').addEventListener('click', async (event) => {
-  event.preventDefault();
-  console.log(event.target);
-  const number = event.srcElement.id;
+  const { answerId } = event.target.dataset;
+  const { questionId } = event.target.closest('.cardList').dataset;
+
+  console.log({ answerId, questionId });
+  // const number = event.srcElement.id;
   // arrAnswers.push(number);
-  
+  alert('Правильный ответ вы не узнаете никогда!');
+  // const responce = await fetch('/input')
+
   // const responce = await fetch('/input/:id'{
   //   method: 'get',
   //     headers: { 'Content-Type': 'Application/json' },
