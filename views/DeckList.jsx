@@ -1,8 +1,9 @@
 const React = require('react');
 
-function DeckList({ deck }) {
+function DeckList({ deck, id }) {
   return (
-    <div className="card" id={`${deck}`} style={{ width: '18rem' }}>
+    <div className="card" id={id} style={{ width: '18rem' }}>
+      {console.log(deck)}
       <div className="card-body">
         <h5 className="card-title">{deck}</h5>
         <form action="/input1" method="post">

@@ -9,7 +9,7 @@ const Third = require('../views/Third');
 // const { decks, cards } = require('../db/models');
 
 router.get('/', async (req, res) => {
-  const deck = await decks.findAll({ raw: true, attributes: ['deck'] });
+  const deck = await decks.findAll({ raw: true, attributes: ['id', 'deck'] });
   // const result = deck.map((el) => el.deck);
   // const main = React.createElement(Main, { title: 'Express' });
   // const html = ReactDOMServer.renderToStaticMarkup(main);

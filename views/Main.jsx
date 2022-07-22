@@ -7,7 +7,7 @@ function Main({ title, deck }) {
     <Layout title={title}>
       <section className="container">
         <h1>Заголовок</h1>
-        {deck.map((el) => <DeckList key={el.id} deck={el.deck} />)}
+        {deck.map((el) => <DeckList deck={el.deck} id={el.id} />)}
       </section>
     </Layout>
   );
