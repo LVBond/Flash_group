@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "vitaliy",
+    "password": "1123",
+    "database": "flash_group",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+   }
+
+}
