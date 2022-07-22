@@ -7,7 +7,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      card: {
+      quest: {
+        type: Sequelize.TEXT,
+      },
+      answer1: {
+        type: Sequelize.TEXT,
+      },
+      answer2: {
+        type: Sequelize.TEXT,
+      },
+      answer3: {
+        type: Sequelize.TEXT,
+      },
+      answerTrue: {
         type: Sequelize.TEXT,
       },
       createdAt: {
