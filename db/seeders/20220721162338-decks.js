@@ -1,7 +1,7 @@
 module.exports = {
   async up(queryInterface) {
     const decks = [{
-      deck: 'Тема1',
+      deck: 'Системы программирования',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
