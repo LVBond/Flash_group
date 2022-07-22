@@ -1,31 +1,15 @@
 module.exports = {
   async up(queryInterface) {
     const decks = [{
-      deck: 'Системы программирования',
+      deck: 'СОВЕТСКИЙ БЫТ',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Тема2',
+      deck: 'ВОПРОСЫ ОТ ЭЛЬБРУСЦЕВ',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Тема3',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      deck: 'Тема4',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      deck: 'Тема5',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      deck: 'Тема6',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      deck: 'Тема7',
+      deck: 'ЦИТАТЫ ИЗ ФИЛЬМОВ ПРО ЛЮБОВЬ',
       createdAt: new Date(),
       updatedAt: new Date(),
     }];
