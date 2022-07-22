@@ -5,7 +5,7 @@ const Layout = require('./Layout');
 function First({ title, result }) {
   return (
     <Layout title={title}>
-      <section className="container">
+      <section id='mainid' className="container">
         <h1>Заголовок</h1>
         {result.map((el) => <CardList card={el} />)}
       </section>

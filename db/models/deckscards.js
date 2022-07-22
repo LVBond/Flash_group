@@ -21,14 +21,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     deck_id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
       references: {
         model: 'decks',
       },
     },
     card_id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
       references: { model: 'cards' },
     },
     createdAt: {
