@@ -1,45 +1,22 @@
 const router = require('express').Router();
 const ReactDOMServer = require('react-dom/server');
 const React = require('react');
-const { decks } = require('../db/models');
+const { decks, deckscards, cards } = require('../db/models');
 const Main = require('../views/Main');
 const First = require('../views/First');
-const Second = require('../views/Second');
-const Third = require('../views/Third');
-// const { decks, cards } = require('../db/models');
 
 router.get('/', async (req, res) => {
   const deck = await decks.findAll({ raw: true, attributes: ['id', 'deck'] });
-  // const result = deck.map((el) => el.deck);
-  // const main = React.createElement(Main, { title: 'Express' });
-  // const html = ReactDOMServer.renderToStaticMarkup(main);
-  // res.write('<!DOCTYPE html>');
-  // res.end(html);
   res.renderComponent(Main, { deck });
 });
 
-router.post('/input1', (req, res) => {
-  const inputWord = req.body.input;
-  const main = React.createElement(First, { title: 'Express' });
-  const html = ReactDOMServer.renderToStaticMarkup(main);
-  res.write('<!DOCTYPE html>');
-  res.end(html);
-});
-
-router.post('/input2', async (req, res) => {
-  const inputWord = req.body.input;
-  const main = React.createElement(Second, { title: 'Express' });
-  const html = ReactDOMServer.renderToStaticMarkup(main);
-  res.write('<!DOCTYPE html>');
-  res.end(html);
-});
-
-router.post('/input3', async (req, res) => {
-  const inputWord = req.body.input;
-  const main = React.createElement(Third, { title: 'Express' });
-  const html = ReactDOMServer.renderToStaticMarkup(main);
-  res.write('<!DOCTYPE html>');
-  res.end(html);
+router.post('/input:id', async (req, res) => {
+  const { params } = req;
+  const card = await cards.findAll({ raw: true, attributes: ['id', 'quest', 'answer1', 'answer2', 'answer3'] });
+  const deckCards = await deckscards.findAll({ raw: true, attributes: ['deck_id', 'card_id'] });
+  const deckIdFilter = deckCards.filter((el) => el.deck_id === Number(params.id)).map((el) => el = el.card_id);
+  const result = card.filter((el) => deckIdFilter.includes(el.id));
+  res.renderComponent(First, { result });
 });
 
 module.exports = router;

@@ -6,7 +6,7 @@ function DeckList({ deck, id }) {
       {console.log(deck)}
       <div className="card-body">
         <h5 className="card-title">{deck}</h5>
-        <form action="/input1" method="post">
+        <form action={`/input${id}`} method="post">
           <button className="btn btn-primary 2">Выбираем</button>
         </form>
       </div>
