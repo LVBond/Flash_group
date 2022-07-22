@@ -1,7 +1,9 @@
 require('@babel/register');
+
 const express = require('express');
 
-// Полключение реакта и реактДом:
+
+
 
 // const { sequelize } = require('./db/models');
 const mainRoute = require('./routes/main.route');
