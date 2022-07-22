@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     answer3: {
       type: DataTypes.TEXT,
     },
-    answer4: {
+    answerTrue: {
       type: DataTypes.TEXT,
     },
     createdAt: {

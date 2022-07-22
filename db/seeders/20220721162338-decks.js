@@ -1,31 +1,31 @@
 module.exports = {
   async up(queryInterface) {
     const decks = [{
-      deck: 'Вопрос1',
+      deck: 'Тема1',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Вопрос2',
+      deck: 'Тема2',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Вопрос3',
+      deck: 'Тема3',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Вопрос4',
+      deck: 'Тема4',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Вопрос5',
+      deck: 'Тема5',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Вопрос6',
+      deck: 'Тема6',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      deck: 'Вопрос7',
+      deck: 'Тема7',
       createdAt: new Date(),
       updatedAt: new Date(),
     }];

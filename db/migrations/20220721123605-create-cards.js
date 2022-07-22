@@ -1,6 +1,12 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('cards', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
       quest: {
         type: Sequelize.TEXT,
       },
@@ -13,7 +19,7 @@ module.exports = {
       answer3: {
         type: Sequelize.TEXT,
       },
-      answer4: {
+      answerTrue: {
         type: Sequelize.TEXT,
       },
       createdAt: {
@@ -22,7 +28,7 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
     });
   },
