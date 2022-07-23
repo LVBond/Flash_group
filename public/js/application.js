@@ -1,5 +1,3 @@
-const arrAnswers = [];
-
 document.querySelector('#mainid').addEventListener('click', async (event) => {
   const { answerId } = event.target.dataset;
   const { questionId } = event.target.closest('.cardList').dataset;
